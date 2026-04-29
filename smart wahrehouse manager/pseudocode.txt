@@ -1,0 +1,27 @@
+Datei 1: models.py (Struktur)
+
+Fehlerklasse: OutOfStockError definieren (erbt von Exception)
+Basis-Klasse: Product (Dataclass) mit id, name, price
+    Check: __post_init__ zur Validierung (keine Negativpreise!)
+    Output: __str__ für saubere Anzeige. 
+Vererbung 1: PhysicalProduct (+ weight, + shipping_costs)
+Vererbung 2: DigitalProduct (Bestand = ∞, + expiry_date)
+Logik-Klasse: Warehouse  
+Speicher: inventory (Dictionary: ID -> Objekt)  
+    Speicher: history (Liste für Zeitstempel-Logs)
+    sell_product(id, qty): Prüfe Bestand, wirf sonst OutOfStockError  
+    filter_low_stock(): Nutze Lambda, um Produkte < 5 Stück zu finden  
+    from_json(): Class Method zum Importieren  
+    calculate_vat(): Static Method für Steuer
+
+Datei 2: main.py (Ablauf)
+
+Importe: Alles aus models.py laden  
+Setup: * wh = Warehouse()
+    Test-Produkte anlegen (1x Laptop, 1x Lizenz-Key).  
+Action (Loop):
+    Produkt verkaufen.
+    Try/Except Block: Den OutOfStockError abfangen, damit das Programm nicht abstürzt.  
+Reporting:
+    Liste der kritischen Bestände drucken.  
+    Gesamte history mit Zeitstempeln ausgeben.
