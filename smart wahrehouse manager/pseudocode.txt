@@ -2,17 +2,17 @@ Datei 1: models.py (Struktur)
 
 Fehlerklasse: OutOfStockError definieren (erbt von Exception)
 Basis-Klasse: Product (Dataclass) mit id, name, price
-    Check: __post_init__ zur Validierung (keine Negativpreise!)
+    Check: __post_init__ zur Validierung (keine Negativpreise-brauchen wir das? war in den anderen Aufgaben auch so)
     Output: __str__ für saubere Anzeige. 
-Vererbung 1: PhysicalProduct (+ weight, + shipping_costs)
-Vererbung 2: DigitalProduct (Bestand = ∞, + expiry_date)
+Vererbung 1: PhysicalProduct (+ gewicht, + versandkosten)
+Vererbung 2: DigitalProduct (Bestand = ∞, + verfallsdatum)
 Logik-Klasse: Warehouse  
 Speicher: inventory (Dictionary: ID -> Objekt)  
-    Speicher: history (Liste für Zeitstempel-Logs)
-    sell_product(id, qty): Prüfe Bestand, wirf sonst OutOfStockError  
-    filter_low_stock(): Nutze Lambda, um Produkte < 5 Stück zu finden  
+    Speicher: verlauf (Liste für Zeitstempel-Logs)
+    verkauf(id, qty): Prüfe Bestand, wirf sonst OutOfStockError  
+    filter_bestand(): Nutze Lambda, um Produkte < 5 Stück zu finden  
     from_json(): Class Method zum Importieren  
-    calculate_vat(): Static Method für Steuer
+    mehrwertsteuer(): Static Method für Steuer
 
 Datei 2: main.py (Ablauf)
 

@@ -23,7 +23,7 @@ class Product:
 @dataclass
 class PhysicalProduct(Product): 
     gewicht: float = 0.0
-    shipping_costs: float = 0.0
+    versandkosten: float = 0.0
 
     def __str__(self):
         return f"[Physisch] {super().__str__()} - Gewicht: {self.gewicht}kg"
